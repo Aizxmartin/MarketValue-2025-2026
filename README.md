@@ -1,3 +1,2 @@
-# Market Valuation CMA App
-
-Instructions and setup notes.
+# CMA Diagnostic Tool
+Upload MLS data and generate a market report.
