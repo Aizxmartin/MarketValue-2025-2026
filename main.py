@@ -1,3 +1,4 @@
+
 import streamlit as st
 import base64
 from adjustments import process_adjustments
@@ -23,16 +24,17 @@ if uploaded_csv:
 
     pdf_text = ""
     real_avm = None
-    if uploaded_pdf is not None:
+
+    if uploaded_pdf:
         try:
             pdf_text = extract_real_avm(uploaded_pdf)
             real_avm = extract_real_avm(uploaded_pdf, return_number=True)
-        if not real_avm:
-            real_avm = (zillow + redfin) / 2 if (zillow and redfin) else 0
-        except Exception as e:
+        except Exception:
             st.warning("PDF could not be read. Continuing without AVM.")
-            pdf_text = ""
             real_avm = None
+
+    if not real_avm and zillow and redfin:
+        real_avm = (zillow + redfin) / 2
 
     if st.button("Generate Report"):
         report_path = process_adjustments(
