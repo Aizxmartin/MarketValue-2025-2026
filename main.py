@@ -23,11 +23,14 @@ if uploaded_csv:
 
     pdf_text = ""
     real_avm = None
-
-    # ✅ Only attempt AVM extraction if PDF is uploaded
     if uploaded_pdf is not None:
-        pdf_text = extract_real_avm(uploaded_pdf)
-        real_avm = extract_real_avm(uploaded_pdf, return_number=True)
+        try:
+            pdf_text = extract_real_avm(uploaded_pdf)
+            real_avm = extract_real_avm(uploaded_pdf, return_number=True)
+        except Exception as e:
+            st.warning("PDF could not be read. Continuing without AVM.")
+            pdf_text = ""
+            real_avm = None
 
     if st.button("Generate Report"):
         report_path = process_adjustments(
