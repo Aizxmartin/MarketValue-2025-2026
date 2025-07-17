@@ -2,6 +2,7 @@ import streamlit as st
 from adjustments import calculate_adjustments
 from utils import extract_real_avm, parse_uploaded_csv, generate_report
 
+st.set_page_config(page_title="📊 CMA Tool – Final Report Format", layout="wide")
 st.title("📊 CMA Tool – Final Report Format")
 
 uploaded_csv = st.file_uploader("Upload MLS Data", type=["csv", "xlsx"])
