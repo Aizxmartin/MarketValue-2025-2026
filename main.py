@@ -1,5 +1,5 @@
-
 import streamlit as st
+import base64
 from adjustments import process_adjustments
 from utils import extract_real_avm, parse_uploaded_csv
 
@@ -23,7 +23,9 @@ if uploaded_csv:
 
     pdf_text = ""
     real_avm = None
-    if uploaded_pdf:
+
+    # ✅ Only attempt AVM extraction if PDF is uploaded
+    if uploaded_pdf is not None:
         pdf_text = extract_real_avm(uploaded_pdf)
         real_avm = extract_real_avm(uploaded_pdf, return_number=True)
 
