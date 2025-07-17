@@ -27,6 +27,8 @@ if uploaded_csv:
         try:
             pdf_text = extract_real_avm(uploaded_pdf)
             real_avm = extract_real_avm(uploaded_pdf, return_number=True)
+        if not real_avm:
+            real_avm = (zillow + redfin) / 2 if (zillow and redfin) else 0
         except Exception as e:
             st.warning("PDF could not be read. Continuing without AVM.")
             pdf_text = ""
