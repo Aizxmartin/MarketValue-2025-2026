@@ -1,0 +1,1 @@
+# generate_report logic placeholder
