@@ -1,2 +1,1 @@
-# CMA Diagnostic Tool
-Upload MLS data and generate a market report.
+This Streamlit app allows users to generate CMA reports based on MLS data.
