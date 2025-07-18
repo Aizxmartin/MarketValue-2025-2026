@@ -1,3 +1,2 @@
-# CMA Diagnostic Tool
-
-Upload MLS data and generate a detailed market valuation report.
+# CMA Diagnostic Tool (No Basement Adjustment)
+Streamlit app to generate CMA reports using AG SF only. PDF used only to extract RealAVM.
